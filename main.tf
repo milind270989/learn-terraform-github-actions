@@ -9,7 +9,7 @@ terraform {
       version = "3.0.1"
     }
   }
-  required_version = "1.0.0"
+  required_version = "~> 1.0.0"
 
   backend "remote" {
     organization = "my_learnings"
