@@ -7,7 +7,7 @@ on:
       - main
   pull_request:
 
-# Defines a terraform job with 8 jobs
+# Defines a terraform job with 8 jobs. Excutes sequentially
 jobs:
   terraform:
     name: "Terraform"
