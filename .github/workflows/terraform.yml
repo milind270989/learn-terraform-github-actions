@@ -1,11 +1,13 @@
 name: "Terraform"
 
+# Lines 3 till 8 specify that the workflow should run only when a commit is pushed to the main branch
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
+# Defines a terraform job with 8 jobs. Excutes sequentially
 jobs:
   terraform:
     name: "Terraform"
@@ -18,7 +20,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           # terraform_version: 0.13.0:
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          cli_config_credentials_token: ${{secrets.TF_API_TOKEN}}
 
       - name: Terraform Format
         id: fmt
@@ -72,5 +74,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve
