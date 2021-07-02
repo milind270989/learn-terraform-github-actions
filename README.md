@@ -7,7 +7,7 @@ This entire tutorial is performed by referring Hashicorp's article highlighted a
 
 Some key points to note:  
 a) The version provided in the article is 0.13 which didn't work in my case.  
-Since my local machine had a version of 1.0.0; I replaced the same in the .yml file  
+Since my local machine had a version of 1.0.0; I replaced the same in the main.tf file 
   
 b) I ran into the issue of not being able to connect to Terraform Cloud from Github inspite of updating the correct API token.  
 So after multiple retries; I found that I have to manually run the "terraform login" command on my local command line and make sure that I create a new token which is updated correctly in the "credentials.tfrc.json" file locally. Then update this same token within TF_API_TOKEN on github secrets.  
